@@ -1,0 +1,202 @@
+@reference "../../../styles.css";
+
+/* =====================================================
+   Footer wrapper
+   ===================================================== */
+.site-footer {
+  @apply
+    bg-gradient-to-r from-[#FFCFAB] to-[#EBA46D]
+    text-white
+    overflow-visible
+    pt-10 pb-12
+    md:pt-12 md:pb-16
+    xl:h-102 
+    xl:pt-0;
+}
+
+/* =====================================================
+   Main footer layout
+   ===================================================== */
+.footer-main {
+  @apply
+    max-w-7xl mx-auto px-6
+    flex flex-col-reverse lg:flex-row
+    items-center justify-between
+    gap-12 lg:gap-16;
+}
+
+/* =====================================================
+   App preview section
+   ===================================================== */
+.footer-app {
+  @apply
+    relative
+    flex flex-col
+    items-center lg:items-start
+    gap-8
+    w-full lg:w-auto;
+}
+
+/* Phone mockup image */
+.footer-app figure img {
+
+  /* Mobile & tablet */
+  @apply
+    relative
+    max-w-[220px] md:max-w-[260px]
+    transition-transform duration-300;
+
+  /* Desktop */
+  @apply
+    lg:absolute lg:max-w-none
+    lg:-top-44 2xl:-left-26 -left-5
+    xl:-top-36;
+}
+
+/* Store badges */
+.app-stores {
+  @apply
+    mt-8 md:mt-10 lg:mt-56
+    flex flex-wrap gap-3
+    justify-center lg:justify-end
+    px-4 lg:px-0
+    lg:pl-20 xl:pl-0;
+}
+
+.app-stores img {
+  @apply
+    h-12 md:h-[45px]
+    cursor-pointer
+    transition-transform
+    
+    ;
+}
+.app-stores a{
+    @apply
+        hover:scale-105
+        focus:scale-105
+        focus-visible:scale-105
+    
+        focus:outline-none;
+}
+
+/* =====================================================
+   Footer info section
+   ===================================================== */
+.footer-info {
+  @apply
+    flex flex-col
+    items-center lg:items-start
+    gap-8
+    text-center lg:text-right
+    pt-10 md:pt-16;
+}
+
+/* Brand */
+.footer-brand img {
+  @apply
+    h-11.5 md:h-11.5
+    mb-4
+    mx-auto lg:mx-0;
+}
+
+.footer-brand p {
+  @apply
+    text-base md:text-xl
+    text-[#E7E0D8]
+    opacity-90
+    max-w-md
+    leading-relaxed;
+}
+
+/* Navigation */
+.footer-nav ul {
+  @apply
+    flex flex-wrap
+    gap-6
+    justify-center lg:justify-end;
+}
+
+.footer-nav a {
+  @apply
+    text-sm md:text-base
+    font-medium
+    underline-offset-4
+    
+    hover:underline
+    focus:underline
+    focus-visible:underline
+
+    focus:outline-none;
+}
+.footer-nav a.active {
+  @apply
+    underline;
+}
+
+/* Social */
+.footer-social ul {
+  @apply
+    flex gap-5
+    text-xl
+    justify-center lg:justify-end;
+}
+
+.footer-social a {
+  @apply
+    inline-flex
+    items-center justify-center
+    transition-transform
+
+    hover:scale-110
+    focus:scale-110
+    focus-visible:scale-110
+
+    focus:outline-none;
+}
+
+
+/* =====================================================
+   Footer legal
+   ===================================================== */
+.footer-legal {
+  @apply
+    mb-10 w-full
+    flex flex-col
+    gap-3
+    items-center justify-start
+    text-xs
+    sm:flex-row sm:justify-between sm:text-sm
+    lg:flex-nowrap;
+}
+
+.footer-legal ul {
+  @apply
+    flex flex-wrap
+    gap-3
+    justify-center
+    sm:flex-nowrap sm:gap-4 sm:justify-start;
+}
+
+.footer-legal p {
+  @apply
+    text-sm md:text-base
+    font-medium
+    text-center sm:text-right
+    sm:pr-6 lg:pr-14 xl:pr-80
+    whitespace-nowrap;
+}
+
+.footer-legal a {
+  @apply
+    text-sm md:text-base
+    font-medium
+    underline-offset-4
+
+    hover:underline
+    focus:underline
+    focus-visible:underline
+
+    focus:outline-none;
+}
+

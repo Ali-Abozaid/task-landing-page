@@ -1,0 +1,245 @@
+@reference "../../../styles.css";
+
+/* =====================================================
+   Navbar wrapper
+   ===================================================== */
+.navbar {
+  @apply
+    w-full
+    bg-gradient-to-b
+    px-4 sm:px-6
+    py-4;
+}
+
+/* =====================================================
+   Navbar container
+   ===================================================== */
+.navbar-container {
+  @apply
+    max-w-7xl
+    mx-auto;
+}
+
+/* =====================================================
+   Header layout
+   ===================================================== */
+.navbar-header {
+  @apply
+    flex
+    items-center
+    justify-between;
+}
+
+/* =====================================================
+   Logo
+   ===================================================== */
+.logo-wrapper {
+  @apply
+    flex
+    items-center
+    pl-4
+    gap-2;
+}
+
+/* =====================================================
+   Navigation links (desktop)
+   ===================================================== */
+.navbar-links {
+  @apply
+    hidden
+    lg:flex
+    items-center
+    gap-8
+    xl:gap-12
+    pt-2;
+}
+
+.nav-link {
+  @apply
+    text-[#818181]
+    transition
+    border-transparent
+    whitespace-nowrap
+
+    /* Hover effect */
+    hover:border-[#F18E42]
+    hover:bg-clip-text
+    hover:text-transparent
+    hover:bg-gradient-to-r
+    hover:from-[#F18E42]
+    hover:to-[#F8C6A0]
+
+    /* Focus effect */
+    focus:outline-none
+    focus:border-b-2
+    focus:border-[#F8C6A0]
+    focus:bg-clip-text
+    focus:text-transparent
+    focus:bg-gradient-to-r
+    focus:from-[#F18E42]
+    focus:to-[#F8C6A0];
+}
+
+.nav-link.active {
+  @apply
+    border-b-2
+    border-[#F8C6A0]
+    bg-clip-text
+    text-transparent
+    bg-gradient-to-r
+    from-[#F18E42]
+    to-[#F8C6A0];
+}
+
+/* =====================================================
+   Navbar buttons (desktop)
+   ===================================================== */
+.navbar-buttons {
+  @apply
+    hidden
+    lg:flex
+    items-center
+    gap-3;
+}
+
+/* =====================================================
+   Base button style (shared)
+   ===================================================== */
+.btn-base {
+  @apply
+    relative
+    overflow-hidden
+    px-4 xl:px-6
+    py-2
+    rounded-3xl
+    font-medium
+    transition-all
+    duration-200
+    focus:outline-none
+    focus-visible:ring-2
+    focus-visible:ring-offset-2
+    focus-visible:ring-[#F18E42];
+}
+
+/* =====================================================
+   Signup button
+   ===================================================== */
+.btn-signup {
+  @apply
+    border-2
+    border-[#f0be98]
+    bg-transparent
+    text-[#F18F44];
+}
+
+.btn-signup .btn-text {
+  @apply
+    block
+    h-full
+    flex
+    items-center
+    justify-center
+    bg-clip-text
+    text-transparent
+    bg-gradient-to-r
+    from-[#F18E42]
+    to-[#F8C6A0]
+    transition-transform
+    duration-300
+    group-hover:-translate-y-10;
+}
+
+.btn-signup .btn-text-hover {
+  @apply
+    absolute
+    inset-0
+    h-full
+    flex
+    items-center
+    justify-center
+    translate-y-full
+    transition-transform
+    duration-300
+    group-hover:translate-y-0;
+}
+
+.btn-signup:hover {
+  @apply
+    bg-black
+    text-white
+    border-black;
+}
+
+/* =====================================================
+   Signin button
+   ===================================================== */
+.btn-signin {
+  @apply
+    bg-[#F4A365]
+    text-white;
+}
+
+.btn-signin .btn-text {
+  @apply
+    block
+    h-full
+    flex
+    items-center
+    justify-center
+    transition-transform
+    duration-300
+    group-hover:-translate-y-10;
+}
+
+.btn-signin .btn-text-hover {
+  @apply
+    absolute
+    inset-0
+    h-full
+    flex
+    items-center
+    justify-center
+    translate-y-full
+    transition-transform
+    duration-300
+    group-hover:translate-y-0;
+}
+
+.btn-signin:hover {
+  @apply
+    bg-black
+    text-white;
+}
+
+/* =====================================================
+   Mobile menu button
+   ===================================================== */
+.btn-menu {
+  @apply
+    lg:hidden
+    p-2
+    rounded-lg
+    text-gray-600
+    hover:text-[#F18E42]
+    hover:bg-gray-100
+    transition-colors
+    duration-200
+    focus:outline-none
+    focus:ring-2
+    focus:ring-offset-2
+    focus:ring-[#F18E42];
+}
+
+/* =====================================================
+   Mobile menu (open state)
+   ===================================================== */
+.open-menu {
+  @apply
+    lg:hidden
+    mt-4
+    pb-4
+    pt-4
+    border-t
+    border-gray-200
+    duration-200;
+}

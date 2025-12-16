@@ -1,0 +1,100 @@
+
+<nav class="navbar" dir="rtl"  aria-label="التنقل الرئيسي">
+  <div class="navbar-container">
+    <!-- Header -->
+    <div class="navbar-header">
+      <!-- Logo -->
+      <div class="logo-wrapper">
+        <img
+          src="assets/navbarImages/MeterLogo.svg"
+          alt="Meter Logo"
+          class="h-10 sm:h-16 md:h-16 w-auto"
+        >
+      </div>
+
+      <!-- Desktop Navigation Links - Hidden on mobile -->
+     <ul class="navbar-links">
+       <li *ngFor="let link of navLinks">
+         <a
+           [routerLink]="link.path"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="link.exact ? { exact: true } : { exact: false }"
+           (click)="closeMobileMenu()"
+           class="nav-link"
+         >
+           {{ link.label }}
+         </a>
+       </li>
+     </ul>
+
+      
+      <!-- Desktop Buttons - Hidden on mobile -->
+      <div class="navbar-buttons">
+        <button class="btn-base btn-signup group" type="button">
+          <span class="btn-text">حساب جديد</span>
+          <span class="btn-text-hover">حساب جديد</span>
+        </button>
+        <button class="btn-base btn-signin group" type="button">
+          <span class="btn-text">تسجيل الدخول</span>
+          <span class="btn-text-hover">تسجيل الدخول</span>
+        </button>
+      </div>
+
+     
+
+
+      <!-- Mobile Menu Button -->
+      <button
+        (click)="toggleMobileMenu()"
+        class="btn-menu"
+        aria-label="القائمة"
+        aria-expanded="{{ isMobileMenuOpen }}"
+        aria-controls="mobile-menu"
+        type="button"
+      >
+
+        <!-- Menu Icon -->
+        <svg *ngIf="!isMobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <!-- Close Icon -->
+        <svg *ngIf="isMobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu - Shown when isMobileMenuOpen is true -->
+    <div
+      *ngIf="isMobileMenuOpen"
+      id="mobile-menu"
+      class="open-menu"
+    >
+          <!-- Mobile Navigation Links -->
+      <ul class="flex flex-col gap-4 mb-4">
+        <li *ngFor="let link of navLinks">
+          <a
+            [routerLink]="link.path"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="link.exact ? { exact: true } : { exact: false }"
+            (click)="closeMobileMenu()"
+            class="nav-link pr-3 py-2"
+          >
+            {{ link.label }}
+          </a>
+        </li>
+      </ul>
+
+      <!-- Mobile Buttons -->
+      <div class="flex flex-col gap-3">
+        <button class="btn-base btn-signup" type="button">
+          حساب جديد
+        </button>
+        <button class="btn-base btn-signin" type="button">
+          تسجيل الدخول
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
