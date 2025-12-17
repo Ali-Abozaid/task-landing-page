@@ -20,7 +20,7 @@
   }
 
   section > header h1 img {
-    @apply absolute left-1/2 -translate-x-1/2 -bottom-5 w-28 md:w-36;
+    @apply absolute left-30 md:left-60 -translate-x-1/2 -bottom-5 w-28 md:w-36;
   }
 
   section > header p {
@@ -72,11 +72,11 @@
 
   /* List */
   section > ul {
-    @apply max-w-7xl mx-auto px-6
+    @apply max-w-7xl mx-auto 
            flex flex-wrap items-center justify-center
-           gap-x-8 gap-y-8 md:gap-x-10;
+           gap-x-8 gap-y-8 md:gap-x-6;
   }
-
+ 
   /* Partner logo */
   section > ul > li img {
     @apply w-auto transition hover:opacity-100;
@@ -85,25 +85,25 @@
   /* Logo sizes */
   section > ul > li img[src*="china-tech"],
   section > ul > li img[src*="deqing"] {
-    @apply h-10 md:h-12;
+    @apply h-full md:h-12;
   }
 
   section > ul > li img[src*="qfs"],
   section > ul > li img[src*="eagle"] {
-    @apply h-12 md:h-16;
+    @apply h-full md:h-16;
   }
 
   section > ul > li img[src*="government"],
   section > ul > li img[src*="saudi"] {
-    @apply h-11 md:h-14;
+    @apply h-full md:h-14;
   }
 
   section > ul > li img[src*="dubai"] {
-    @apply h-9 md:h-11;
+    @apply h-full md:h-11;
   }
 
   section > ul > li img[src*="iso"] {
-    @apply h-10 md:h-12;
+    @apply h-full md:h-12;
   }
 
   /* Divider */
@@ -112,7 +112,7 @@
   }
 
   section > ul > li[aria-hidden="true"] img {
-    @apply h-10 opacity-40;
+    @apply h-full opacity-40;
   }
 }
 /* Products Section */
@@ -323,188 +323,184 @@
   @apply hidden;
 }
 
-.ISO,
-.china,
-.Deqing {
-  animation: moveLeftAndBack 4s ease-in-out infinite;
+@tailwind utilities;
+
+@layer utilities {
+/* ===============================
+   Layout Styles
+================================ */
+
+.partners-section {
+  padding: 4rem 0;
 }
 
-/* Animation */
-@keyframes moveLeftAndBack {
-  0% {
-    transform: translateX(0);
-  }
-
-  50% {
-    transform: translateX(-380px); /* move left */
-  }
-
-  100% {
-    transform: translateX(0); /* return */
-  }
+.partners-header {
+  margin-bottom: 2.5rem;
+  text-align: center;
 }
 
-/* Partner images with movement + cross-fade */
-.QFS-eagle,
-.government-china2,
-.saudi-QFS,
-.saudi-Dubai {
+.partners-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.partners-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.partner-swap {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Different movement distance for each pair */
-.QFS-eagle {
-  animation: partnersMoveLeft10 4s ease-in-out infinite;
-}
-
-.government-china2 {
-  animation: partnersMoveLeft40 4s ease-in-out infinite;
-}
-
-.saudi-QFS {
-  animation: partnersMoveLeft90 4s ease-in-out infinite;
-}
-
-.saudi-Dubai {
-  animation: partnersMoveLeft130 4s ease-in-out infinite;
-}
-
-.QFS-eagle img,
-.government-china2 img,
-.saudi-QFS img,
-.saudi-Dubai img {
-  transition: opacity 0.3s ease-in-out;
-  height: auto;
-  width: auto;
-}
-
-/* First image in each pair */
-.QFS-eagle .eagle,
-.government-china2 .china2,
-.saudi-QFS .saudi,
-.saudi-Dubai .Dubai {
+.partner-swap img {
   position: relative;
   z-index: 1;
-  animation: fadeOutOnMove 4s ease-in-out infinite;
 }
 
-/* Second image in each pair - overlaps the first one */
-.QFS-eagle .QFS,
-.government-china2 .government,
-.saudi-QFS .QFS,
-.saudi-Dubai .saudi {
+.partner-swap .fade-in {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: 0;
-  z-index: 2;
-  pointer-events: none;
-  animation: fadeInOnMove 4s ease-in-out infinite;
 }
 
-/* Container movement: move different distances left then back */
-@keyframes partnersMoveLeft130 {
-  0% {
-    transform: translateX(0);
-  }
+/* ===============================
+   Keyframes
+================================ */
 
-  50% {
-    transform: translateX(-130px); /* move left 150px */
-  }
-
-  100% {
-    transform: translateX(0); /* return */
-  }
-}
-
-@keyframes partnersMoveLeft90 {
-  0% {
-    transform: translateX(0);
-  }
-
-  50% {
-    transform: translateX(-90px); /* move left 100px */
-  }
-
-  100% {
-    transform: translateX(0); /* return */
-  }
-}
-
-@keyframes partnersMoveLeft40 {
-  0% {
-    transform: translateX(0);
-  }
-
-  50% {
-    transform: translateX(-40px); /* move left 50px */
-  }
-
-  100% {
-    transform: translateX(0); /* return */
-  }
-}
-
-@keyframes partnersMoveLeft10 {
-  0% {
-    transform: translateX(0);
-  }
-
-  50% {
-    transform: translateX(-10px); /* move left 10px */
-  }
-
-  100% {
-    transform: translateX(0); /* return */
-  }
-}
-
-/* First image - visible at start, disappears at max point, returns on the way back */
-@keyframes fadeOutOnMove {
-  0% {
-    opacity: 1;
-  }
-
-  40% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0; /* disappear at max point (200px) */
-  }
-
-  60% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1; /* return */
-  }
-}
-
-/* Second image - hidden at start, appears at max point, hides again on return */
-@keyframes fadeInOnMove {
+@keyframes fade {
   0% {
     opacity: 0;
+    transform: translateX(0);
   }
-
-  40% {
-    opacity: 0;
-  }
-
   50% {
-    opacity: 1; /* appear at max point (200px) */
-  }
-
-  60% {
     opacity: 1;
+    transform: translateX(-150px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fromRight {
+  0% {
+    transform: translateX(400px);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(300px);
+  }
+}
+
+@keyframes moveLeft10 {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-10px); }
+}
+
+@keyframes moveLeft40 {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-40px); }
+}
+
+@keyframes moveLeft90 {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-90px); }
+}
+
+@keyframes moveLeft130 {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-130px); }
+}
+
+@keyframes moveLeftAndBack {
+  0% { transform: translateX(220px); }
+  50% { transform: translateX(-200px); }
+  100% { transform: translateX(220px); }
+}
+
+@keyframes fadeOut {
+  0%, 40% { opacity: 1; }
+  50%, 60% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeIn {
+  0%, 40% { opacity: 0; }
+  50%, 60% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ===============================
+   Animation Classes
+================================ */
+/* ===============================
+   Disable animations by default
+================================ */
+
+.animate-fade,
+.animate-from-right,
+.animate-move-10,
+.animate-move-40,
+.animate-move-90,
+.animate-move-130,
+.move-left-back,
+.fade-in,
+.fade-out {
+  animation: none;
+}
+
+/* ===============================
+   Enable animations on LG screens
+   (1024px and above)
+================================ */
+
+@media (min-width: 1250px) {
+
+  .animate-fade {
+    animation: fade 4s ease-in-out infinite;
   }
 
-  100% {
-    opacity: 0; /* disappear on return */
+  .animate-from-right {
+    animation: fromRight 4s ease-in-out infinite;
   }
+
+  .animate-move-10 {
+    animation: moveLeft10 4s ease-in-out infinite;
+  }
+
+  .animate-move-40 {
+    animation: moveLeft40 4s ease-in-out infinite;
+  }
+
+  .animate-move-90 {
+    animation: moveLeft90 4s ease-in-out infinite;
+  }
+
+  .animate-move-130 {
+    animation: moveLeft130 4s ease-in-out infinite;
+  }
+
+  .move-left-back {
+    animation: moveLeftAndBack 4s ease-in-out infinite;
+  }
+
+  .fade-out {
+    animation: fadeOut 4s ease-in-out infinite;
+  }
+
+  .fade-in {
+    animation: fadeIn 4s ease-in-out infinite;
+  }
+}
+
 }
