@@ -322,3 +322,189 @@
 .work-step:last-child .work-step__line {
   @apply hidden;
 }
+
+.ISO,
+.china,
+.Deqing {
+  animation: moveLeftAndBack 4s ease-in-out infinite;
+}
+
+/* Animation */
+@keyframes moveLeftAndBack {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-380px); /* move left */
+  }
+
+  100% {
+    transform: translateX(0); /* return */
+  }
+}
+
+/* Partner images with movement + cross-fade */
+.QFS-eagle,
+.government-china2,
+.saudi-QFS,
+.saudi-Dubai {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Different movement distance for each pair */
+.QFS-eagle {
+  animation: partnersMoveLeft10 4s ease-in-out infinite;
+}
+
+.government-china2 {
+  animation: partnersMoveLeft40 4s ease-in-out infinite;
+}
+
+.saudi-QFS {
+  animation: partnersMoveLeft90 4s ease-in-out infinite;
+}
+
+.saudi-Dubai {
+  animation: partnersMoveLeft130 4s ease-in-out infinite;
+}
+
+.QFS-eagle img,
+.government-china2 img,
+.saudi-QFS img,
+.saudi-Dubai img {
+  transition: opacity 0.3s ease-in-out;
+  height: auto;
+  width: auto;
+}
+
+/* First image in each pair */
+.QFS-eagle .eagle,
+.government-china2 .china2,
+.saudi-QFS .saudi,
+.saudi-Dubai .Dubai {
+  position: relative;
+  z-index: 1;
+  animation: fadeOutOnMove 4s ease-in-out infinite;
+}
+
+/* Second image in each pair - overlaps the first one */
+.QFS-eagle .QFS,
+.government-china2 .government,
+.saudi-QFS .QFS,
+.saudi-Dubai .saudi {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+  animation: fadeInOnMove 4s ease-in-out infinite;
+}
+
+/* Container movement: move different distances left then back */
+@keyframes partnersMoveLeft130 {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-130px); /* move left 150px */
+  }
+
+  100% {
+    transform: translateX(0); /* return */
+  }
+}
+
+@keyframes partnersMoveLeft90 {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-90px); /* move left 100px */
+  }
+
+  100% {
+    transform: translateX(0); /* return */
+  }
+}
+
+@keyframes partnersMoveLeft40 {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-40px); /* move left 50px */
+  }
+
+  100% {
+    transform: translateX(0); /* return */
+  }
+}
+
+@keyframes partnersMoveLeft10 {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-10px); /* move left 10px */
+  }
+
+  100% {
+    transform: translateX(0); /* return */
+  }
+}
+
+/* First image - visible at start, disappears at max point, returns on the way back */
+@keyframes fadeOutOnMove {
+  0% {
+    opacity: 1;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0; /* disappear at max point (200px) */
+  }
+
+  60% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1; /* return */
+  }
+}
+
+/* Second image - hidden at start, appears at max point, hides again on return */
+@keyframes fadeInOnMove {
+  0% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1; /* appear at max point (200px) */
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0; /* disappear on return */
+  }
+}
