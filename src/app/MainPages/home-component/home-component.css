@@ -371,6 +371,13 @@
   transform: translate(-50%, -50%);
 }
 
+/* Hide overlay image on small & medium screens to avoid stacking */
+@media (max-width: 1249px) {
+  .partner-swap .fade-in {
+    display: none;
+  }
+}
+
 /* ===============================
    Keyframes
 ================================ */
