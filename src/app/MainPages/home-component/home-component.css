@@ -346,11 +346,15 @@
 
 .partners-list {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-wrap: nowrap; /* مهم */
   align-items: center;
   gap: 2.5rem;
+  overflow-x: visible; /* يسمح بالخروج */
 }
+.partners-list li {
+  flex-shrink: 0;
+}
+
 
 .partner-swap {
   position: relative;
@@ -372,11 +376,8 @@
 }
 
 /* Hide overlay image on small & medium screens to avoid stacking */
-@media (max-width: 1249px) {
-  .partner-swap .fade-in {
-    display: none;
-  }
-}
+
+ 
 
 /* ===============================
    Keyframes
@@ -466,12 +467,8 @@
   animation: none;
 }
 
-/* ===============================
-   Enable animations on LG screens
-   (1024px and above)
-================================ */
 
-@media (min-width: 1250px) {
+
 
   .animate-fade {
     animation: fade 4s ease-in-out infinite;
@@ -510,4 +507,4 @@
   }
 }
 
-}
+
