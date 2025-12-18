@@ -346,10 +346,10 @@
 
 .partners-list {
   display: flex;
-  flex-wrap: nowrap; /* مهم */
+  flex-wrap: nowrap; 
   align-items: center;
   gap: 2.5rem;
-  overflow-x: visible; /* يسمح بالخروج */
+  overflow-x: visible; 
 }
 .partners-list li {
   flex-shrink: 0;
@@ -375,7 +375,7 @@
   transform: translate(-50%, -50%);
 }
 
-/* Hide overlay image on small & medium screens to avoid stacking */
+
 
  
 
@@ -451,9 +451,7 @@
 /* ===============================
    Animation Classes
 ================================ */
-/* ===============================
-   Disable animations by default
-================================ */
+
 
 .animate-fade,
 .animate-from-right,
